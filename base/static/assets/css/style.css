@@ -1,0 +1,37 @@
+body{
+    background: linear-gradient(90deg, rgba(13,180,196,0.966) 17%, rgba(21,130,228,1) 100%);
+    font-family: monospace; 
+    font-weight: 600;
+}
+.title{
+    color: #fff;
+    background-color: #343A40;
+    padding: 10px 0;
+    border-radius: 7px;
+    text-transform: uppercase;
+}
+.content-body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.content-box{
+    background-color:#fff;
+    width: 80%;
+    padding: 20px;
+    box-shadow: -1px -1px 48px 12px rgba(31,31,31,0.63);
+}
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 0.541);
+  outline: 0;
+  box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.308)
+}
+.form-select:focus {
+    border-color: rgba(0, 0, 0, 0.541);
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.308)
+}

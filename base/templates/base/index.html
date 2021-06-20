@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uText</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+
+<body>
+    <div class="content-body">
+        <div class="content-box">
+            <h3 class="text-center title">Welcome to uText</h3>
+            <form class="mt-4" method="POST">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <label for="content" class="form-label">Paste/Type Your Text:</label>
+                    <button onclick="copy()" class="btn btn-outline-secondary btn-sm float-end mb-1">Copy</button>
+                    <textarea name="content" rows="7" id="content" class="form-control" placeholder="Enter Your Text.." required=True>{{ edited_content }}</textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <select name="action" class="form-select">
+                        <option value="punctuation">Remove Punctuation</option>
+                        <option value="wordcount">Count The Words</option>
+                        <option value="capitalize">Captitalize Each Word</option>
+                        <option value="upper">Transform to Upper Case</option>
+                        <option value="lower">Transform to Lower Case</option>
+                        <option value="trim">Trim the WhiteSpace</option>
+                        <option value="lineremove">Remove New Line</option>
+                        <option value="extraspace">Remove Extra Space</option>
+                    </select>
+
+                </div>
+                <div class="form-group mb-3">
+                    <button type="submit" class="btn btn-secondary">Transform</button>
+                    {% if word_count %}
+                        <h5 class="d-inline text-success" style="font-weight: 900;">There are {{ word_count }} words</h5>
+                    {% endif %}
+                    <button type="reset" class="btn btn-outline-danger float-end">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'assets/js/bootstrap.bundle.js' %}"></script>
+    <script>
+        function copy() {
+        var copyText = document.getElementById('content')
+        copyText.select();
+        document.execCommand('copy')
+      }
+      </script>
+</body>
+</html>
